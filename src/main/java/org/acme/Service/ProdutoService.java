@@ -1,5 +1,6 @@
 package org.acme.Service;
 
+import io.quarkus.hibernate.orm.PersistenceUnit;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -11,17 +12,22 @@ import java.math.BigDecimal;
 
 public class ProdutoService {
     @Inject
-    EntityManager em;
-    public void main(String[] args) {
-        createProduct();
+    @PersistenceUnit("loja")
+    static EntityManager em;
+
+    public static void main(String[] args) {
+        hello();
     }
     @Transactional
-    public void createProduct() {
+    public static void createProduct() {
         Produto celular = new Produto();
         celular.setNome("Xiomi Redmi");
         celular.setDescricao("Eficiente");
         celular.setPreco(new BigDecimal("800"));
         em.persist(celular);
+    }
+    public static void hello() {
+        System.out.println("Hello hibernate");
     }
 }
 // CURSO
