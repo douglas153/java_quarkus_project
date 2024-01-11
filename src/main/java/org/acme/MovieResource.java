@@ -23,13 +23,4 @@ public class MovieResource {
         List<Movie> response = movie.getList();
         return Response.ok(response).build();
     }
-    @GET()
-    @Path("{id}")
-    @Description("get list of movies")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getMoviesbyId(@PathParam("id") Long id) {
-        Movie movie = new Movie();
-        Movie response = movie.getMovieById(id);
-        return Response.ok(response).build();
-    }
 }
