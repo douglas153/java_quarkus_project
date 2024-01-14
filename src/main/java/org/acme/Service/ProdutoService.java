@@ -11,33 +11,23 @@ import org.acme.Models.Loja.Produto;
 import java.math.BigDecimal;
 
 public class ProdutoService {
-    @Inject
-    @PersistenceUnit("loja")
-    static EntityManager em;
+//    @Inject
+//    @PersistenceUnit("loja")
+//    EntityManager em;
 
     public static void main(String[] args) {
-        hello();
-    }
-    @Transactional
-    public static void createProduct() {
         Produto celular = new Produto();
         celular.setNome("Xiomi Redmi");
         celular.setDescricao("Eficiente");
         celular.setPreco(new BigDecimal("800"));
+
+        EntityManagerFactory factory = Persistence
+                .createEntityManagerFactory("loja");
+        EntityManager em = factory.createEntityManager();
+        em.getTransaction().begin();
         em.persist(celular);
-    }
-    public static void hello() {
-        System.out.println("Hello hibernate");
+        em.getTransaction().commit();
+        em.close();
     }
 }
-// CURSO
-//public static void main(String[] args) {
-//        Produto celular = new Produto();
-//        celular.setNome("Xiomi Redmi");
-//        celular.setDescricao("Eficiente");
-//        celular.setPreco(new BigDecimal("800"));
-//
-//        EntityManagerFactory factory = Persistence.createEntityManagerFactory("loja");
-//        EntityManager em = factory.createEntityManager();
-//        em.persist(celular);
-//    }
+
