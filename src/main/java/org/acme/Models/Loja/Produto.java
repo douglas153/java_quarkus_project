@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "loja") //Usado quando o nome da classe é diferente da tabela no banco.
+@Table(name = "test") //Usado quando o nome da classe é diferente da tabela no banco.
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // dizer como o valor é gerado;

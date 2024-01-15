@@ -4,16 +4,19 @@ import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 import org.acme.Models.Loja.Produto;
 
 import java.math.BigDecimal;
 
+@Path("produto")
 public class ProdutoResource {
     @Inject
     EntityManager entityManager;
 
     @POST
+    @Path("/create")
     @Transactional
     public Response createProduto() {
         Produto celular = new Produto();
