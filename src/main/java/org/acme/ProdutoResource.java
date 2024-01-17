@@ -15,6 +15,11 @@ import java.math.BigDecimal;
 public class ProdutoResource {
     @Inject
     EntityManager entityManager;
+    @GET
+    @Path("/getProdutos")
+    public List<Produto> getProdutos() {
+        return entityManager.createNamedQuery("Produtos.findAll", Produto.class).getResultList();
+    }    
 
     @POST
     @Path("/create")
