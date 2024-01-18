@@ -15,30 +15,25 @@ import java.math.BigDecimal;
 public class ProdutoResource {
     @Inject
     EntityManager entityManager;
+    
     @GET
     @Path("/getProdutos")
-    public List<Produto> getProdutos() {
-        return entityManager.createNamedQuery("Produtos.findAll", Produto.class).getResultList();
-    }    
-
-    @POST
-    @Path("/create")
-    @Transactional
-    public Response createProduto() {
-        Produto celular = new Produto();
-        celular.setNome("Xiomi Redmi");
-        celular.setDescricao("Eficiente");
-        celular.setPreco(new BigDecimal("800"));
-
-        entityManager.persist(celular);
-        return Response.ok(celular).status(201).build();
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Listar todos os produtos",
+            description = "Listar todos os produtos. ")
+    public Response getProduto() {
+        List<Produto> result = entityManager.createNamedQuery("Produtos.findAll", Produto.class).getResultList();
+        return Response.ok(result).build();
     }
+
 
     @POST
     @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
+    @Operation(summary = "Cadastrar Produto",
+        description = "Cadastrar novo produto. ")
     public Response createProdutoDto(ProdutoDto produtoReq) {
         Produto celular = new Produto();
         celular.setNome(produtoReq.getNome());
