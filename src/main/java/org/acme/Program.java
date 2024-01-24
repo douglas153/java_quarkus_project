@@ -4,9 +4,29 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-
+        testeFuncionario();
         System.out.println("Hello java object");
 
+    }
+        public static void testeFuncionario() {
+        Funcionario nico = new Funcionario();
+        nico.setNome("Nico Alura");
+        nico.setCpf("05544856988");
+        nico.setSalario(2890.20);
+
+//        System.out.println(nico.getNome());
+//        System.out.println(nico.getSalario());
+//        System.out.println(nico.getCpf());
+
+        ///////////////POLIMORFISMO
+        Gerente gerente = new Gerente(222);
+        gerente.setNome("gerente Alura");
+        gerente.setCpf("05544856988");
+        gerente.setSalario(5890.20);
+        gerente.setTipo(1);
+        gerente.autenticar(222);
+        System.out.println(gerente.getSalario());
+        System.out.println(gerente.getBonificacao());
     }
     public static void exemploLoop() {
         Scanner input = new Scanner(System.in);
