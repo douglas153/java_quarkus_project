@@ -12,10 +12,6 @@ public class Funcionario {
         //validar tipo de funcionario para bonificação;
         if(tipo == 0){ //Funcionario comum
             return this.salario * 0.1;
-        } else if (tipo == 1) { //Gerente
-            return this.salario * 0.2;
-        } else if (tipo == 2) { //Diretor
-            return this.salario * 0.3;
         }else {
             return this.salario;
         }

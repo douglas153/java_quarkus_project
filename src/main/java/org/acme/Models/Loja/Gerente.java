@@ -3,11 +3,10 @@ package org.acme.Models.Loja;
 public class Gerente  extends Funcionario {
     private int senha;
 
-    public Gerente(int senha) {
-        this.senha = senha;
-    }
-
     //VALIDAR AUTENTICAÇÃO
+    public double getBonificacao2(double salario) {
+        return salario * 0.2;
+    }
     public boolean autenticar(int senha){
         if(this.senha == senha){
             System.out.println("aut" + senha + this.senha);
