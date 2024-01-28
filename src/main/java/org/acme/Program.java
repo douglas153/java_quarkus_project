@@ -1,5 +1,8 @@
 package org.acme;
 
+import org.acme.Models.Loja.Funcionario;
+import org.acme.Models.Loja.Gerente;
+
 import java.util.Scanner;
 
 public class Program {

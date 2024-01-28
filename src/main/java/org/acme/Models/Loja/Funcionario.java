@@ -1,4 +1,4 @@
-package org.acme.persistence.dao;
+package org.acme.Models.Loja;
 
 import java.math.BigDecimal;
 

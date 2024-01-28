@@ -1,6 +1,6 @@
-package org.acme.persistence.dao;
+package org.acme.Models.Loja;
 
-public class Gerente  extends Funcionario{
+public class Gerente  extends Funcionario {
     private int senha;
 
     public Gerente(int senha) {
