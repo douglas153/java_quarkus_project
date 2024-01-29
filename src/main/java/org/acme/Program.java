@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        testeFuncionario();
+        criarGerente();
     }
-        public static void testeFuncionario() {
+        public static void criarFuncionario() {
         Funcionario nico = new Funcionario();
         nico.setNome("Nico Alura");
         nico.setCpf("05544856988");
@@ -17,8 +17,12 @@ public class Program {
         double salarioFinal = nico.getSalario() + nico.getBonificacao();
             System.out.println("Bonificação do funcionario " + nico.getBonificacao() +"\n total com salario: "+salarioFinal );
 
+    }
+
+    public static void criarGerente() {
         ///////////////POLIMORFISMO
-            System.out.println("///////////////bonificação gerente");
+        System.out.println("///////////////bonificação gerente");
+        Funcionario funci = new Funcionario();
         Gerente gerente = new Gerente();
         gerente.setNome("gerente Alura");
         gerente.setCpf("05544856988");
@@ -27,9 +31,10 @@ public class Program {
         //senha
         gerente.setSenha(222);
         boolean autenticacao = gerente.autenticar(2);
-            salarioFinal = gerente.getSalario() + gerente.getBonificacao2(gerente.getSalario());
-            System.out.println("Gerente está autenticado? " + autenticacao);
-            System.out.println("Bonificação do funcionario " + gerente.getBonificacao2(gerente.getSalario()) +"\n total com salario: "+ salarioFinal );
+        double salarioFinal = gerente.getSalario() + funci.getBonificacao();
+        System.out.println("Gerente está autenticado? " + autenticacao);
+        System.out.println("Bonificação do funcionario " + gerente.getBonificacao2() +"\n total com salario: "+ salarioFinal );
+
     }
     public static void exemploLoop() {
         Scanner input = new Scanner(System.in);

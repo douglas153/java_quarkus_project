@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class Funcionario {
     private String nome;
     private String cpf;
-    private double salario;
+    protected double salario; //publico para classes filhas
     private int tipo = 0;
     //COMPORTAMERNTOS: buscar bonificação;
     public double getBonificacao(){

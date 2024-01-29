@@ -4,8 +4,8 @@ public class Gerente  extends Funcionario {
     private int senha;
 
     //VALIDAR AUTENTICAÇÃO
-    public double getBonificacao2(double salario) {
-        return salario * 0.2;
+    public double getBonificacao2(){
+        return super.salario * 0.2; // 'super.salario' indica que o salario está na classe mae;
     }
     public boolean autenticar(int senha){
         if(this.senha == senha){
