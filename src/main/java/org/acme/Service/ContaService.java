@@ -2,6 +2,8 @@ package org.acme.Service;
 
 import org.acme.Models.Cliente;
 import org.acme.Models.Conta;
+import org.acme.Models.ContaHeranca.ContaCorrente;
+import org.acme.Models.ContaHeranca.ContaPoupanca;
 
 import java.util.Scanner;
 
@@ -11,7 +13,19 @@ public class ContaService {
         //depositarConta();
         //ExemploScanner();
         //contaMarcela();
-        tiposOperacao();
+        testaTipoConta();
+    }
+
+    public static void testaTipoConta() {
+        ContaCorrente cc = new ContaCorrente();
+        cc.depositar(100);
+
+        ContaPoupanca cp = new ContaPoupanca();
+        cp.depositar(200);
+
+        cc.sacar(50);
+        System.out.println(cc.getSaldo() + " incide desconto de 1%");
+        System.out.println(cp.getSaldo());
     }
 
     public static Conta contaMarcela() {

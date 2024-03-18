@@ -1,21 +1,38 @@
 package org.acme;
 
-import org.acme.Models.Loja.Funcionario;
-import org.acme.Models.Loja.Gerente;
+import org.acme.Models.Loja.*;
 
 import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        criarGerente();
+        //criarGerente();
+        testeSistema();
     }
-        public static void criarFuncionario() {
+    public static void criarFuncionario() {
         Funcionario nico = new Funcionario();
         nico.setNome("Nico Alura");
         nico.setCpf("05544856988");
         nico.setSalario(2890.20);
         double salarioFinal = nico.getSalario() + nico.getBonificacao();
             System.out.println("Bonificação do funcionario " + nico.getBonificacao() +"\n total com salario: "+salarioFinal );
+
+    }
+
+    public static void testeSistema() {
+        Gerente g = new Gerente();
+        g.setSenha(222);
+
+        Administrador adm = new Administrador();
+        adm.setSenha(222);
+
+        ClienteLoja clienteLoja = new ClienteLoja();
+        clienteLoja.setSenha(222);
+
+        SistemaInterno sistemaInterno = new SistemaInterno();
+        sistemaInterno.autenticar(g);
+        sistemaInterno.autenticar(adm);
+        sistemaInterno.autenticar(clienteLoja);
 
     }
 
@@ -26,14 +43,15 @@ public class Program {
         Gerente gerente = new Gerente();
         gerente.setNome("gerente Alura");
         gerente.setCpf("05544856988");
-        gerente.setSalario(5890.20);
-        gerente.setTipo(1);
+        gerente.setSalario(5000);
         //senha
         gerente.setSenha(222);
         boolean autenticacao = gerente.autenticar(2);
-        double salarioFinal = gerente.getSalario() + funci.getBonificacao();
-        System.out.println("Gerente está autenticado? " + autenticacao);
-        System.out.println("Bonificação do funcionario " + gerente.getBonificacao2() +"\n total com salario: "+ salarioFinal );
+        double salarioFinal = gerente.getBonificacao();
+//        System.out.println("Gerente está autenticado? " + autenticacao);
+        System.out.println("Gerente salario " + gerente.getSalario());
+        System.out.println("Gerente bonificacao " + gerente.getBonificacao());
+//        System.out.println("Bonificação do funcionario " + funci.getBonificacao() +"\n total com salario: "+ salarioFinal );
 
     }
     public static void exemploLoop() {

@@ -1,15 +1,9 @@
 package org.acme.Models.Loja;
 
 import org.acme.Models.Loja.Interface.Autenticavel;
-//Gerente eh um Funcionario, Gerente herda da class Funcionario, assina o contrato Autenticavel, eh um Autenticavel
-public class Gerente  extends Funcionario implements Autenticavel {
+
+public class ClienteLoja implements Autenticavel {
     private int senha;
-    //Bonificação
-    public double getBonificacao() {
-        double result = super.getBonificacao() + super.getSalario();
-        return result;
-    }
-    //Implementação
     @Override
     public void setSenha(int senha) {
         this.senha = senha;

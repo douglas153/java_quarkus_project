@@ -5,17 +5,16 @@ import java.math.BigDecimal;
 public class Funcionario {
     private String nome;
     private String cpf;
-    protected double salario; //publico para classes filhas
+//    protected double salario; publico para classes filhas
+    private double salario;
     private int tipo = 0;
+
     //COMPORTAMERNTOS: buscar bonificação;
     public double getBonificacao(){
         //validar tipo de funcionario para bonificação;
-        if(tipo == 0){ //Funcionario comum
             return this.salario * 0.1;
-        }else {
-            return this.salario;
-        }
     }
+
 
     //GETTERS AND SETTERS
     public String getNome() {
