@@ -23,8 +23,9 @@ public class ContaService {
         ContaPoupanca cp = new ContaPoupanca();
         cp.depositar(200);
 
-        cc.sacar(50);
-        System.out.println(cc.getSaldo() + " incide desconto de 1%");
+        cc.getValorImposto();
+        System.out.println(cc.getSaldo() + "saldo total");
+        System.out.println(cc.getValorImposto() + " incide imposto de 1%");
         System.out.println(cp.getSaldo());
     }
 
